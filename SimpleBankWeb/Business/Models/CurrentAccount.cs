@@ -6,7 +6,7 @@ public class CurrentAccount : Account
 {
     private const double _minimumBalance = 20000;
     private const double _monthlyCharge = 3000;
-    private const double _dailyTransactionLimit = 80000;
+    private const double _dailyTransactionLimit = 800000;
 
     public CurrentAccount(string number, string name, double initialDeposit) 
         : base(number, name, initialDeposit)
@@ -15,7 +15,7 @@ public class CurrentAccount : Account
             throw new ArgumentOutOfRangeException(nameof(initialDeposit));
     }
 
-    public override void MonthlyAccountProcess()
+    public override void PerformMonthEndProcessing()
     {
         var monthlyCharge = Transaction.Debit(this.Number, _monthlyCharge, "Monthly account fees");
         Transactions.Add(monthlyCharge);
