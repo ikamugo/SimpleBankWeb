@@ -2,6 +2,10 @@
 {
     public abstract class Account
     {
+        public string Number { get; private set; }
+        public string Name { get; private set; }
+        public List<Transaction> Transactions { get; private set; }
+        private Account() { }
         public Account(string number, string name, double initialDeposit)
         {
             // initialize members
@@ -11,12 +15,8 @@
 
             //make initial deposit
             Deposit(initialDeposit, "Initial deposit");
-            
-        }
 
-        public string Number { get; private set; }
-        public string Name { get; private set; }
-        public List<Transaction> Transactions { get; private set; }
+        }
 
         public double GetBalance()
         {
@@ -37,7 +37,7 @@
 
         public abstract void Withdraw(double amount, string description);
 
-        public abstract void MonthlyAccountProcess();
+        public abstract void PerformMonthEndProcessing();
 
                 
     }
