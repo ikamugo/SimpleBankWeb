@@ -4,12 +4,20 @@ namespace SimpleBankWeb.Business.Models
 {
     public class Transaction
     {
+        
+        public int Id { get; set; }
+        public string AccountNumber { get; private set; }
+        public DateTime Timestamp { get; private set; }
+        public double Amount { get; private set; }
+        public string Description { get; private set; }
+        public TransactionType Type { get; private set; }
+
         private Transaction(TransactionType type, string accNumber, double amount, string description)
         {
-            if(amount < 0)
+            if (amount < 0)
                 throw new ArgumentOutOfRangeException(nameof(amount));
 
-            if(type == TransactionType.Withdraw || type == TransactionType.Debit)
+            if (type == TransactionType.Withdraw || type == TransactionType.Debit)
             {
                 amount = -amount;
             }
@@ -18,15 +26,8 @@ namespace SimpleBankWeb.Business.Models
             AccountNumber=accNumber;
             Amount=amount;
             Description=description;
-            Type = type; 
+            Type = type;
         }
-
-        public string AccountNumber { get; private set; }
-        public DateTime Timestamp { get; private set; }
-        public double Amount { get; private set; }
-        public string Description { get; private set; }
-        public TransactionType Type { get; private set; }
-
 
         public static Transaction Credit(string accountNumber, double amount, string description)
         {
