@@ -11,12 +11,7 @@ namespace SimpleBankWeb.Business.Services
 
             
 
-            var withdraw = new Transaction(TransactionType.Credit, "2002001" ,10000, "some withdraw");
-            
-
-
-
-            Console.WriteLine(withdraw.Amount);
+    
         }
     }
 }

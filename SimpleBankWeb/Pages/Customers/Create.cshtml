@@ -1,0 +1,73 @@
+﻿@page
+@model SimpleBankWeb.Pages.Customers.CreateModel
+
+@{
+    ViewData["Title"] = "Create2";
+}
+
+<h1>Create2</h1>
+
+<h4>CreateCustomerModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CreateCustomerModel.Name" class="control-label"></label>
+                <input asp-for="CreateCustomerModel.Name" class="form-control" />
+                <span asp-validation-for="CreateCustomerModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateCustomerModel.Gender" class="control-label"></label>
+                <select asp-for="CreateCustomerModel.Gender" class="form-control">
+                    <option>Female</option>
+                    <option>Male</option>
+                </select>
+                <span asp-validation-for="CreateCustomerModel.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateCustomerModel.Phone" class="control-label"></label>
+                <input asp-for="CreateCustomerModel.Phone" class="form-control" />
+                <span asp-validation-for="CreateCustomerModel.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateCustomerModel.Location" class="control-label"></label>
+                <input asp-for="CreateCustomerModel.Location" class="form-control" />
+                <span asp-validation-for="CreateCustomerModel.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateCustomerModel.DateOfBirth" class="control-label"></label>
+                <input asp-for="CreateCustomerModel.DateOfBirth" class="form-control" />
+                <span asp-validation-for="CreateCustomerModel.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateCustomerModel.InitialDeposit" class="control-label"></label>
+                <input asp-for="CreateCustomerModel.InitialDeposit" class="form-control" />
+                <span asp-validation-for="CreateCustomerModel.InitialDeposit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateCustomerModel.AccountType" class="control-label"></label>
+                <select asp-for="CreateCustomerModel.AccountType" class="form-control">
+                    <option value="Current">Current Account</option>
+                    <option value="Saving">Saving Account</option>
+                    <option value="SilverCredit">Silver Credit Account</option>
+                    <option value="GoldCredit">Gold Credit Account</option>
+                    <option value="PlatinumCredit">Platinum Credit  Account</option>
+                </select>
+                <span asp-validation-for="CreateCustomerModel.AccountType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

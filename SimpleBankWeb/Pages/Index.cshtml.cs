@@ -7,6 +7,8 @@ namespace SimpleBankWeb.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        public string Name = "Isaac";
+        public DateTime CurrentTime = DateTime.Now;
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
