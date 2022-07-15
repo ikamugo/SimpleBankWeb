@@ -7,6 +7,10 @@
         private const double _minimumBalance = 100000;
         private const double _extraWithdrawCharge = 5000;
 
+        private SavingAccount() 
+        {
+        }
+
         public SavingAccount(string number, string name, double initialDeposit) 
             : base(number, name, initialDeposit)
         {

@@ -22,6 +22,10 @@ namespace SimpleBankWeb.Business.Models
             }
         }
 
+        private CreditAccount() 
+        { 
+        }
+
         private CreditAccount(CreditType type, string number, string name, double initialDeposit)
             : base(number, name, initialDeposit)
         {

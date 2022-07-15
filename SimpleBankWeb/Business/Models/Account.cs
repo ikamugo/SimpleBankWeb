@@ -5,7 +5,7 @@
         public string Number { get; private set; }
         public string Name { get; private set; }
         public List<Transaction> Transactions { get; private set; }
-        private Account() { }
+        protected Account() { }
         public Account(string number, string name, double initialDeposit)
         {
             // initialize members

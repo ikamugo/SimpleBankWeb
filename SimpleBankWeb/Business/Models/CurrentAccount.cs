@@ -8,6 +8,10 @@ public class CurrentAccount : Account
     private const double _monthlyCharge = 3000;
     private const double _dailyTransactionLimit = 800000;
 
+    private CurrentAccount()
+    {
+    }
+
     public CurrentAccount(string number, string name, double initialDeposit) 
         : base(number, name, initialDeposit)
     {
