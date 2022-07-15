@@ -12,6 +12,7 @@ namespace SimpleBankWeb.Business.Models
         public string Description { get; private set; }
         public TransactionType Type { get; private set; }
 
+        private Transaction() { }
         private Transaction(TransactionType type, string accNumber, double amount, string description)
         {
             if (amount < 0)
@@ -22,7 +23,7 @@ namespace SimpleBankWeb.Business.Models
                 amount = -amount;
             }
 
-            Timestamp=DateTime.Now;
+            Timestamp=DateTime.UtcNow;
             AccountNumber=accNumber;
             Amount=amount;
             Description=description;

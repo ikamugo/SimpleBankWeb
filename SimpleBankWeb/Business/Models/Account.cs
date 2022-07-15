@@ -1,16 +1,20 @@
-﻿namespace SimpleBankWeb.Business.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SimpleBankWeb.Business.Models
 {
     public abstract class Account
     {
+        [Key]
         public string Number { get; private set; }
-        public string Name { get; private set; }
+        public int CustomerId { get; private set; }
+        public Customer Customer { get; private set; }
         public List<Transaction> Transactions { get; private set; }
         protected Account() { }
-        public Account(string number, string name, double initialDeposit)
+        public Account(string number, Customer customer, double initialDeposit)
         {
             // initialize members
             Number=number;
-            Name=name;
+            Customer = customer;
             Transactions=new List<Transaction>();
 
             //make initial deposit

@@ -8,7 +8,6 @@ namespace SimpleBankWeb.Business.Models
         private const double _overdraftFees = 10000;
 
         public CreditType Type { get; private set; }
-
         public double CreditLimit
         {
             get
@@ -20,19 +19,18 @@ namespace SimpleBankWeb.Business.Models
                 else
                     return 1000000;
             }
+            
         }
 
-        private CreditAccount() 
-        { 
-        }
+        private CreditAccount() { }
 
-        private CreditAccount(CreditType type, string number, string name, double initialDeposit)
-            : base(number, name, initialDeposit)
+        private CreditAccount(CreditType type, string number, Customer customer, double initialDeposit)
+            : base(number, customer, initialDeposit)
         {
             Type = type;
 
-            if(initialDeposit < CreditLimit)
-                throw new ArgumentOutOfRangeException(nameof(initialDeposit));
+            if (initialDeposit < CreditLimit)
+                throw new Exception($"Initial Deposit for this account is {CreditLimit: #,###}");
         }
 
 
@@ -67,19 +65,19 @@ namespace SimpleBankWeb.Business.Models
 
         }
 
-        public static CreditAccount Silver(string number, string name, double minimumBalance)
+        public static CreditAccount Silver(string number, Customer customer, double initialDeposit)
         {
-            return new CreditAccount(CreditType.Silver, number, name, minimumBalance);
+            return new CreditAccount(CreditType.Silver, number, customer, initialDeposit);
         }
 
-        public static CreditAccount Gold(string number, string name, double minimumBalance)
+        public static CreditAccount Gold(string number, Customer customer, double initialDeposit)
         {
-            return new CreditAccount(CreditType.Gold, number, name, minimumBalance);
+            return new CreditAccount(CreditType.Gold, number, customer, initialDeposit);
         }
 
-        public static CreditAccount Platinum(string number, string name, double minimumBalance)
+        public static CreditAccount Platinum(string number, Customer customer, double initialDeposit)
         {
-            return new CreditAccount(CreditType.Platinum, number, name, minimumBalance);
+            return new CreditAccount(CreditType.Platinum, number, customer, initialDeposit);
         }
     }
 }

@@ -12,8 +12,8 @@ public class CurrentAccount : Account
     {
     }
 
-    public CurrentAccount(string number, string name, double initialDeposit) 
-        : base(number, name, initialDeposit)
+    public CurrentAccount(string number, Customer customer, double initialDeposit) 
+        : base(number, customer, initialDeposit)
     {
         if(initialDeposit < _minimumBalance)
             throw new ArgumentOutOfRangeException(nameof(initialDeposit));
